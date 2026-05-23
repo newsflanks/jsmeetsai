@@ -29,6 +29,20 @@ if it receives an API that is sent using GET and there is no corresponding GET A
 If the user is going to be sharing links with others, there must be a GET API implementation for the API or the person who receives the link will get this error when trying to use it. You can't share POST links.
 </blockquote>
 
+<blockquote>
+Each API should have a unique name and signature, with a few exceptions:
+<ul>
+<li>GET and POST APIs in the public space. You need a corresponding API with the same signature for any POST API in the public space. That way the app can handle a cut and paste of a POST API's signature if the visitor shares it. If you
+don't have the corresponding GET, the POST version will give an error.</li>
+<li>Same API, diffferent signatures. The API with the corresponding signature will get called. This makes a cleaner API in terms of how visitors and users "see" the calls. You don't need API names
+like https://write and https://write2, etc. One "write" API can handle multiple cases.</li>
+<li>Shared APIs between public and private. Often a user will try to cut and paste an API from a private space into an e-mail for sharing. Of course that won't work when the recipient gets it. You
+need to make the same API and signature available in both the public and private spaces to handle these cases or the recipient of the link will get an error.</li>
+</ul>
+
+
+</blockquote>
+
 <a href="https://developer.mozilla.org/en-US/docs/Web/API">Mozilla browser APIs</a><br /><br />
 
 <a href="https://www.youtube.com/watch?v=QpAhXa12xvU">RESTful API development methodology (YouTube video)</a><br /><br />

@@ -17,7 +17,10 @@
 <img src="./images/loadbalancing.png"><br />
 <h4>Callbacks that write should write just one field, not lock a whole collection. Nested callbacks (Christmas trees) should only contain one write and the end of callback tree.
 This way the only error that can occur is if the write fails -- everything else is a read.</h4>
-
+<h4>Node.js allows you to build the fastest websites. If designed correctly, they can be scaled to basically any size. It takes a while to get good with asynchronous programming, but once you get it
+then you're set. Write locks should be the only locks, like DEC's RMS system. All other calls should be "stackable" whereby they are pushed on the call stack for retrieval when their times comes
+up. If there are too many calls building up, then stateless node allows you to shard across servers, supported by distributed Mongo databases. This gives you the fastest websites. You don't need AWS.
+Do it yourself on Linode.</h4>
 </div>
 
 </body>
