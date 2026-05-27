@@ -32,7 +32,24 @@
 <font face="Verdana, Arial, Helvetica, sans-serif">
 <div>
 
+Bootstrap allows you to use one set of html pages to define display on all devices. Depending on the device size, content is reformatted to fit properly.
+
+You need to use the tag: <font face="Courier"><pre>&lt;META NAME="viewport" CONTENT="width=device-width, initial-scale=1"&gt;</pre></font> to ensure that your content fits properly on small screen sizes (e.g., phones).<br /><br />
+
 <a href="https://getbootstrap.com/">https://getbootstrap.com/</a><br /><br />
+
+Use the jquery call getBootstrapDeviceSize() to get the screen size of the current device:
+<pre>&lt;script&gt;
+	function getBootstrapDeviceSize() {
+		return  $('#users-device-size').find('div:visible').first().attr('id');
+	}
+&lt;/script&gt;
+&lt;div id="users-device-size"&gt;
+  &lt;div id="xs" class="visible-xs"&gt;&lt;/div&gt;
+  &lt;div id="sm" class="visible-sm"&gt;&lt;/div&gt;
+  &lt;div id="md" class="visible-md"&gt;&lt;/div&gt;
+  &lt;div id="lg" class="visible-lg"&gt;&lt;/div&gt;
+</div></pre>
 
 <ul>
 <li>smart phone = xs</li>
@@ -40,7 +57,7 @@
 <li>computer = lg</li>
 </ul>
 
-
+You can also use Bootstrap's own CSS classes to find the device screen size:<br />
 <a href="http://stackoverflow.com/questions/14441456/how-to-detect-which-device-view-youre-on-using-twitter-bootstrap-api">http://stackoverflow.com/questions/14441456/how-to-detect-which-device-view-youre-on-using-twitter-bootstrap-api</a><br /><br />
 
 </div>
