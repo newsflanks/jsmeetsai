@@ -31,12 +31,31 @@
 </head>
 <body>
 <font face="Verdana, Arial, Helvetica, sans-serif">
-<h2>Using a Media Window Sandbox</h2>
+<h1>Using a Media Window Sandbox</h1>
 <div>
 
-<a href="http://www.developerdrive.com/2012/03/a-simple-way-to-add-free-news-content-to-your-website/">http://www.developerdrive.com/2012/03/a-simple-way-to-add-free-news-content-to-your-website/</a><br /><br />
+<ul>
+<li><a href="http://www.developerdrive.com/2012/03/a-simple-way-to-add-free-news-content-to-your-website/">http://www.developerdrive.com/2012/03/a-simple-way-to-add-free-news-content-to-your-website/</a></li>
+<li><a href="https://github.com/wmh/jquery-scrollbox">https://github.com/wmh/jquery-scrollbox</a></li>
+</ul>
 
-<a href="https://github.com/wmh/jquery-scrollbox">https://github.com/wmh/jquery-scrollbox</a><br /><br />
+<blockquote>Here's how newsflanks.com implements AI media windows. This code produces a scrollable media box with a width suitable to either a phone screen or table/PC:</blockquote>
+<pre><font face="courier">&lt;script language="javascript">
+var temp = getBootstrapDeviceSize();
+if (temp === 'xs') {
+document.writeln("&lt;div&gt;&lt;center&gt;
+ &lt;object data='/static/templates/29d.html'
+ width=284 height=320&gt;
+type='text/html'&lt;/object&gt;&lt;/center&gt;&lt;/div&gt;");
+}
+else {
+document.writeln("&lt;div&gt;&lt;center&gt;
+ &lt;object data='/static/templates/29d.html'
+ width=435 height=320&gt;
+type='text/html'&lt;/object&gt;&lt;/center&gt;&lt;/div&gt;");
+};
+&lt;/script&gt;</font></pre>
+
 
 </div>
 </font>

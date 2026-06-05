@@ -31,17 +31,78 @@
 </head>
 <body>
 <font face="Verdana, Arial, Helvetica, sans-serif">
-<h2>Audio Sandbox</h2>
+<h1>Audio Sandbox</h1>
 <div>
 
-<font="helvetica" size="+2">Plays on all browsers<br />
-<b>"@lt;audio autoplay="autoplay"@gt; @lt;source src="./swf_audio.mp3"@gt;@lt;/audio@gt;"</b>
-</font>
+<blockquote>Plays on all browsers:</blockquote>
+
+<font face="courier"><pre>&lt;audio autoplay="autoplay"&gt;
+&lt;source src="./swf_audio.mp3"&gt;&lt;/audio&gt;</pre></font>
 
 <audio autoplay="autoplay">
      <source src="../swf-to-html5/swf_audio.mp3" />
 </audio>
 
+<blockquote>
+OpenAI provides audio generation through ChatGPT and through the API.<br /><br />
+
+<b>In ChatGPT:</b><br /><br />
+
+If your version of ChatGPT includes audio tools, you can ask for things like:<br />
+<ul>
+<li>"Generate a voiceover for this script."</li>
+<li>"Read this paragraph in a professional narrator voice."</li>
+<li>"Create a podcast-style introduction."</li>
+</ul>
+
+You can also use Voice Mode to interact by speaking and listening, although that's primarily for conversation rather than producing downloadable audio files.<br /><br />
+
+<b>Using the OpenAI API</b><br /><br />
+
+OpenAI's text-to-speech models can generate spoken audio from text.<br /><br />
+
+The main documentation is here:<br /><br />
+
+<a href="https://developers.openai.com/api/docs/guides/text-to-speech">Text to speech</a><br /><br />
+
+Typical workflow:<br />
+
+<ol>
+<li>Send text to the API.</li>
+<li>Choose a voice.</li>
+<li>Receive an MP3 or other audio file.</li>
+</ol>
+
+Example in JavaScript:<br />
+</blockquote>
+
+<font face="courier"><pre>import fs from "fs";
+import OpenAI from "openai";
+
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY,
+});
+
+const mp3 = await openai.audio.speech.create({
+  model: "gpt-4o-mini-tts",
+  voice: "alloy",
+  input: "Welcome to our product demonstration.",
+});
+
+const buffer = Buffer.from(await mp3.arrayBuffer());
+fs.writeFileSync("speech.mp3", buffer);</pre>
+</font>
+<blockquote>
+
+<b>Creating audio for a Sora video</b><br /><br />
+
+Sora currently focuses on video generation. If you generate a video and want narration or music:<br />
+<ol>
+<li>Generate the video with Sora.</li>
+<li>Generate narration separately using OpenAI text-to-speech.</li>
+<li>Combine the video and audio in a video editor such as DaVinci Resolve, Adobe Premiere Pro, or CapCut.</li>
+</ol>
+</blockquote>
 </div>
 </font>
 </body>

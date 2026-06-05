@@ -31,8 +31,24 @@
 </head>
 <body>
 <font face="Verdana, Arial, Helvetica, sans-serif">
-<h2>CSS3 Sandbox</h2>
-<a href="https://github.com/AllThingsSmitty/must-watch-css">https://github.com/AllThingsSmitty/must-watch-css</a><br /><br />
+<h1>CSS3 Sandbox</h1>
+
+<a href="https://github.com/AllThingsSmitty/must-watch-css">https://github.com/AllThingsSmitty/must-watch-css</a>
+
+
+<blockquote>
+Cascading style sheets use three levels of HTML styling:
+
+<ul>
+<li>Global level--Every HTML page references an external file that contains all the HTML style definitions; by convention this global CSS file is usually called <font face="courier">style.css</font>.</li>
+<li>Page level--You can specify the styling for each HTML page with <font face="courier">style</font> tags from anywhere within the page, though these styles are usually specified within the <font face="courier">HEAD</font> section. These styles override what's in the global <font face="courier">style.css</font> file.
+<li>Inline--You can use a <font face="courier">style=""</font> tag within any HTML element to specify CSS for just that element. An inline style will override what's in the global <font face="courier">style.css</font> as well as any CSS specified with opening and closing <font face="courier">style</font> tags anywhere else in the file (though these are usually put in the <font face="courier">HEAD</font> section, as already mentioned, because they get parsed and stored for the page right away when the page first loads).
+
+</ul>
+
+Importantly, because a media box is usally used for AI output, you need to specify the styling for the AI content separately. The styles aren't inherited from the HTML page where the media box "lives." I like to use very different styling for the AI HTML, usually via a page-level styling spec in the <font="courier">HEAD</font> section, though you can also simply reference the global <font="courier">style.css</font> file if you want the same styling that is used on the main HTML page. But it is recommended to give the AI its own styling, especially font, because you want the user to know when they are in "AI world" and when they aren't.
+</blockquote>
+
 </font>
 </body>
 </html>

@@ -32,27 +32,28 @@
 </head>
 <body>
 <font face="Verdana, Arial, Helvetica, sans-serif">
-<h2>APIs Sandbox</h2>
+<h1>APIs Sandbox</h1>
 <div>
 
-<font="helvetica" size="+2"><a href="https://swagger.io/">https://swagger.io/ is a solid API specification.</font><br /><br />
-<a href="https://www.openapis.org/">https://www.openapis.org/ is building on the Swagger spec to create an open, general spec for REST APIs</a>.<br /><br />
-
-Meanwhile, use <a href="./express.html">Express</a> or <a href="http://restify.com">Restify</a>.<br /><br />
+<ul>
+<li><font="helvetica" size="+2"><a href="https://swagger.io/">https://swagger.io/ is a solid API specification.</font></li>
+<li><a href="https://www.openapis.org/">https://www.openapis.org/ is building on the Swagger spec to create an open, general spec for REST APIs</a>.</li>
+<li>Meanwhile, use <a href="./express.html">Express</a> or <a href="http://restify.com">Restify</a>.</li>
+</ul>
 
 <a href="https://www.quora.com/What-s-the-difference-between-using-REST-API-and-using-regular-HTTP-POST-GET-methods-I-decided-to-learn-REST-API-and-could-not-see-a-difference-Am-I-dreaming/answer/Brad-Harrison-10">POST vs. GET</a><br /><br />
 
 <blockquote>
-REST is implemented in the Express Node.js module. Express provides a clean, fast and small implementation of REST. The two key REST APIs are POST and GET. Most web applications implementing REST need just these two.<br />
-Example:<br />
-&#x2022; app.post('/links3/:question/:frame/:impression/:visitor/:token/:url_text', function (req, res, next) {})<br />
-&#x2022; app.get('/links3/:question/:frame/:impression/:visitor/:token/:url_text', function (req, res, next) {})<br />
+REST is implemented in the Express Node.js module. Express provides a clean, fast and small implementation of REST. The two key REST APIs are POST and GET. Most web applications implementing REST need just these two.<br /><br />
+Example:<br /><br />
+app.post('/links3/:question/:frame/:impression/:visitor/:token/:url_text', function (req, res, next) {})<br /><br />
+app.get('/links3/:question/:frame/:impression/:visitor/:token/:url_text', function (req, res, next) {})<br /><br />
 Browsers send these APIs to a running Node.js app and, in return, receive populated HTML in response. The HTML is delivered and populated by Node via HTML templates stored on the server and by data from a database in use by the Node app, usually Mongodb.
 If a form is being submitted from the browser, then a POST API is required. This is because form data is hidden in the HTTP packets exchanged with the the running Node app as opposed to passing
-data in the actual arguments in the API, which is visible to the user and (presumably) anyone else. Secure HTTP (HTTPS) encrypts packet data, so form data is secure with POST calls. Data in the returned HTML is also encrypted. That's really why you must have POST in addition to GET.<br />
+data in the actual arguments in the API, which is visible to the user and (presumably) anyone else. Secure HTTP (HTTPS) encrypts packet data, so form data is secure with POST calls. Data in the returned HTML is also encrypted. That's really why you must have POST in addition to GET.<br /><br />
 Note that the signature of the two APIs is identical. This enables the user to send a link to someone else so they can view a response without having to securely submit any data. Express distinguishes between POST and GET APIs and
-if it receives an API that is sent using GET and there is no corresponding GET API in the app, then you get this message:<br />
-<b>Cannot GET /links3/6939e6efea23336df07a0eeb/30/0/6/0/Under-Trump-20-has-America-become-a-far-right-wing-authoritarian-state</b><br />
+if it receives an API that is sent using GET and there is no corresponding GET API in the app, then you get this message:<br /><br /><br />
+<b>Cannot GET /links3/6939e6efea23336df07a0eeb/30/0/6/0/Under-Trump-20-has-America-become-a-far-right-wing-authoritarian-state</b><br /><br />
 If the user is going to be sharing links with others, there must be a GET API implementation for the API or the person who receives the link will get this error when trying to use it. You can't share POST links.
 </blockquote>
 
@@ -70,29 +71,20 @@ need to make the same API and signature available in both the public and private
 
 </blockquote>
 
-<a href="https://developer.mozilla.org/en-US/docs/Web/API">Mozilla browser APIs</a><br /><br />
-
-<a href="https://www.youtube.com/watch?v=QpAhXa12xvU">RESTful API development methodology (YouTube video)</a><br /><br />
-
-<a href="https://jonathas.com/documenting-your-nodejs-api-with-apidoc/">Document your Node APIs</a><br /><br />
-
-<a href="https://thenewstack.io/5-handy-api-services-web-development/">Good examples of Restful API services, especially #4, e-commerce</a><br /><br />
-
-<a href="https://www.oreilly.com/learning/how-to-design-a-restful-api-architecture-from-a-human-language-spec?imm_mid=0fa416&cmp=em-prog-na-na-newsltr_20180106">How to design a RESTful API architecture from a human-language spec</a><br /><br />
-
-<a href="http://www.passportjs.org/">http://www.passportjs.org/</a><br /><br />
-
-<a href="https://stackoverflow.com/questions/165779/are-the-put-delete-head-etc-methods-available-in-most-web-browsers">Can just use get (reads from DB) and post (writes to DB); put and delete not usually supported</a><br /><br />
-
-<a href="https://blogs.mulesoft.com/biz/microservices-biz/microservices-versus-apis/?utm_campaign=digest&utm_medium=referral&utm_source=email&mkt_tok=eyJpIjoiTW1RMlpHTm1Nak15WVdKayIsInQiOiJEZGtsR0tcL2Y4OXpSYUpQbU5NaHJRTzVna24wdkNDelF2eUZ6NkJvYlRBNjl6K3IxMXkrWXY1dlI0aW41d0ZZME4yVHlEXC9tc3JMRm1kYm0rSDRvOE9nc2ZMZnN2WTZpTFpFUFJIc2xJMUh2WlozK0FuUWZqM0tQdHhRYXFZWVkrIn0%3D">Microservices vs. APIs</a>.<br /><br />
-
-<a href="https://hackernoon.com/restful-api-design-with-node-js-26ccf66eab09">RESTful API design with Node.js</a><br /><br />
-
-<a href="https://blog.risingstack.com/10-best-practices-for-writing-node-js-rest-apis/">10 Best Practices for Writing Node.js REST APIs</a><br /><br />
-
-<a href="https://blogs.mulesoft.com/biz/api/its-time-for-a-new-security-model/?utm_campaign=digest&utm_medium=referral&utm_source=email/&mkt_tok=eyJpIjoiTlRaa09HRXhaRFl4TmpjeiIsInQiOiJDdWYreWtRMmFMc0JENitmYzRwQk1yVVRYTklmUmlVWng0dHBUdGZ5KzIzUURsZDViVFZSQ1graHRDUGVnSUVTMnFXOEgwU1Z0alo2c0dVVU5zTVZWaDlDdlorSU9zbWp1TjF0eUNpcVNPKzRmbXJCM08yYlwvTGwyQ1lGWjRPWnQifQ%3D%3D">API Security</a><br /><br />
-
-<a href="https://blog.miguelgrinberg.com/post/writing-a-javascript-rest-client">Writing a JS REST client</a><br /><br />
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API">Mozilla browser APIs</a></li>
+<li><a href="https://www.youtube.com/watch?v=QpAhXa12xvU">RESTful API development methodology (YouTube video)</a></li>
+<li><a href="https://jonathas.com/documenting-your-nodejs-api-with-apidoc/">Document your Node APIs</a></li>
+<li><a href="https://thenewstack.io/5-handy-api-services-web-development/">Good examples of Restful API services, especially #4, e-commerce</a></li>
+<li><a href="https://www.oreilly.com/learning/how-to-design-a-restful-api-architecture-from-a-human-language-spec?imm_mid=0fa416&cmp=em-prog-na-na-newsltr_20180106">How to design a RESTful API architecture from a human-language spec</a></li>
+<li><a href="http://www.passportjs.org/">http://www.passportjs.org/</a></li>
+<li><a href="https://stackoverflow.com/questions/165779/are-the-put-delete-head-etc-methods-available-in-most-web-browsers">Can just use get (reads from DB) and post (writes to DB); put and delete not usually supported</a></li>
+<li><a href="https://blogs.mulesoft.com/biz/microservices-biz/microservices-versus-apis/?utm_campaign=digest&utm_medium=referral&utm_source=email&mkt_tok=eyJpIjoiTW1RMlpHTm1Nak15WVdKayIsInQiOiJEZGtsR0tcL2Y4OXpSYUpQbU5NaHJRTzVna24wdkNDelF2eUZ6NkJvYlRBNjl6K3IxMXkrWXY1dlI0aW41d0ZZME4yVHlEXC9tc3JMRm1kYm0rSDRvOE9nc2ZMZnN2WTZpTFpFUFJIc2xJMUh2WlozK0FuUWZqM0tQdHhRYXFZWVkrIn0%3D">Microservices vs. APIs</a></li>
+<li><a href="https://hackernoon.com/restful-api-design-with-node-js-26ccf66eab09">RESTful API design with Node.js</a></li>
+<li><a href="https://blog.risingstack.com/10-best-practices-for-writing-node-js-rest-apis/">10 Best Practices for Writing Node.js REST APIs</a></li>
+<li><a href="https://blogs.mulesoft.com/biz/api/its-time-for-a-new-security-model/?utm_campaign=digest&utm_medium=referral&utm_source=email/&mkt_tok=eyJpIjoiTlRaa09HRXhaRFl4TmpjeiIsInQiOiJDdWYreWtRMmFMc0JENitmYzRwQk1yVVRYTklmUmlVWng0dHBUdGZ5KzIzUURsZDViVFZSQ1graHRDUGVnSUVTMnFXOEgwU1Z0alo2c0dVVU5zTVZWaDlDdlorSU9zbWp1TjF0eUNpcVNPKzRmbXJCM08yYlwvTGwyQ1lGWjRPWnQifQ%3D%3D">API Security</a></li>
+<li><a href="https://blog.miguelgrinberg.com/post/writing-a-javascript-rest-client">Writing a JS REST client</a></li>
+</ul>
 
 </div>
 </font>

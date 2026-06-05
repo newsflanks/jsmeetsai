@@ -35,10 +35,6 @@ main, .splash {
   margin: 0px auto;
 }
 
-a {
-  color: #333;
-}
-
 h3 a {
   text-decoration: none;
 }
@@ -64,10 +60,6 @@ header {
   background: url('limbsoup2-bg.png') #111;
   text-align: center;
   height: 100%;
-}
-
-a:hover {
-  background: #aee;
 }
 
 
