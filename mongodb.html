@@ -35,18 +35,21 @@
 <div>
 
 <blockquote>In Mongodb, collections are just named containers, like tables in relational databases. A collection is comprised of <i>documents</i>.
-Documents can contains embedded documents within them. Every top-level (collection root) document gets a unique _id. _ids are optional for sub-documents. It is these
+Documents can contain embedded documents within them. Every top-level (collection root) document gets a unique _id. _ids are optional for sub-documents. It is these
 _ids that make Mongodb a NoSQL database. You don't need primary keys, as in a SQL database, to find what you are looking for. You simply use _ids. Many of the complexities of SQL
-are eliminated.<br /><br />
-When developing in stateless node, you don't want data structures' data in memory. You want your arrays
-read from and written directly to non-volatile storage. The mongodb driver for node.js supports this, with some limitations. You can't do this with
-SQL. In addition, with replication, mongodb scales like a dream. However, you can write only to the primary mongo node:</blockquote>
+are eliminated. Mongo is lightening fast.<br /><br />
+When running an app in stateless node, you don't want your data structures' data cached in memory--or, at least, you want it cached to volatile storage for as little time as possible. You want your arrays read directly from and written directly to non-volatile storage.
+The mongodb driver for node.js supports this, with some limitations. When node.js app writes data, the data is mostly persisted immediately to durable storage. Every transaction is immediately journaled so
+that you can recover any data that is lost in the event that the database crashes before data is written to it. Information that is lost due to server crash during journaling can/t be recovered, but that's extrememly rare. With replication, mongodb scales like a dream. However, you can write only to the primary mongo node:</blockquote>
 
 <ul>
 <li><a href="https://docs.mongodb.com/manual/replication/">https://docs.mongodb.com/manual/replication/</a></li>
 <li><a href="https://github.com/williamkapke/mongo-mock">https://github.com/williamkapke/mongo-mock</a></li>
 </ul>
 
+<blockquote>
+If you need local databases that contain a subset of the "mother" database for offline access, use solutions like CouchDB. Mongo won't help you much there.
+</blockquote>
 </div>
 </font>
 </body>
