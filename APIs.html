@@ -44,17 +44,23 @@
 <a href="https://www.quora.com/What-s-the-difference-between-using-REST-API-and-using-regular-HTTP-POST-GET-methods-I-decided-to-learn-REST-API-and-could-not-see-a-difference-Am-I-dreaming/answer/Brad-Harrison-10">POST vs. GET</a><br /><br />
 
 <blockquote>
-REST is implemented in the Express Node.js module. Express provides a clean, fast and small implementation of REST. The two key REST APIs are POST and GET. Most web applications implementing REST need just these two.<br /><br />
+REST is implemented in the Express Node.js module. Express provides a clean, fast and small implementation of REST. The two key REST APIs are POST and GET. Most web applications implementing REST need just these two.
+</blockquote>
 Example:<br /><br />
-app.post('/links3/:question/:frame/:impression/:visitor/:token/:url_text', function (req, res, next) {})<br /><br />
-app.get('/links3/:question/:frame/:impression/:visitor/:token/:url_text', function (req, res, next) {})<br /><br />
+<center>
+<b>app.post('/links3/:question/:frame/:impression/ :visitor/:token/:url_text', function (req, res, next) {})</b><br />
+<b>app.get('/links3/:question/:frame/:impression/ :visitor/:token/:url_text', function (req, res, next) {})</b><br />
+</center>
+<blockquote>
 Browsers send these APIs to a running Node.js app and, in return, receive populated HTML in response. The HTML is delivered and populated by Node via HTML templates stored on the server and by data from a database in use by the Node app, usually Mongodb.
 If a form is being submitted from the browser, then a POST API is required. This is because form data is hidden in the HTTP packets exchanged with the the running Node app as opposed to passing
 data in the actual arguments in the API, which is visible to the user and (presumably) anyone else. Secure HTTP (HTTPS) encrypts packet data, so form data is secure with POST calls. Data in the returned HTML is also encrypted. That's really why you must have POST in addition to GET.<br /><br />
 Note that the signature of the two APIs is identical. This enables the user to send a link to someone else so they can view a response without having to securely submit any data. Express distinguishes between POST and GET APIs and
-if it receives an API that is sent using GET and there is no corresponding GET API in the app, then you get this message:<br /><br /><br />
-<b>Cannot GET /links3/6939e6efea23336df07a0eeb/30/0/6/0/Under-Trump-20-has-America-become-a-far-right-wing-authoritarian-state</b><br /><br />
-If the user is going to be sharing links with others, there must be a GET API implementation for the API or the person who receives the link will get this error when trying to use it. You can't share POST links.
+if it receives an API that is sent using GET and there is no corresponding GET API in the app, then you get this message:
+</blockquote>
+<b>Cannot GET /links3/6939e6efea23336df07a0eeb/30/0/6/0/Under-Trump-20-has-America-become-a-far-right-wing-authoritarian-state</b><br />
+<blockquote>
+If the user is going to be sharing links with others, there must be a GET API implementation for the API or the person who receives the link will get that error when trying to use it. You can't share POST links.
 </blockquote>
 
 <blockquote>
