@@ -74,7 +74,8 @@ This way the only error that can occur is if the write fails -- everything else 
 Node.js allows you to build the fastest websites. If designed correctly, they can be scaled to basically any size. It takes a while to get good with asynchronous programming, but once you get it
 then you're set. Write locks should be the only locks, like DEC's RMS system. All other calls should be "stackable" whereby they are pushed on the call stack for retrieval when their times comes
 up. If there are too many calls building up, then stateless node allows you to shard across servers, supported by distributed Mongo databases. This gives you the fastest websites. You don't need AWS.
-Do it yourself on Linode.
+Do it yourself on "raw" server sites like Linode.<br /><br />
+You will also need to decide whether you want to use node callbacks, promises, or async/await. These days most programmers use promises, but there are a variety of considerations to look at when deciding. I still prefer callbacks even though your code looks like it is filled with "Christmas trees."
 </blockquote>
 </div>
 </font>
