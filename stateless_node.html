@@ -42,7 +42,7 @@
 <li><a href="https://jwt.io/">Use JWT security because each transaction is self-contained and digitally signed.</a></li>
 </ul>
 <blockquote>
-A "stateless Node" application usually means a Node.js server that does not store session or user-specific state in its own memory between requests. Each request can be handled independently.<br /><br />
+A "stateless Node" application usually means that a Node.js server does not store session or user-specific state in its own memory between requests. Each request can be handled independently.<br /><br />
 "Stateless" does not mean:
 <ul>
 <li>no database</li>
@@ -75,7 +75,11 @@ Node.js allows you to build the fastest websites. If designed correctly, they ca
 then you're set. Write locks should be the only locks, like DEC's RMS system. All other calls should be "stackable" whereby they are pushed on the call stack for retrieval when their times comes
 up. If there are too many calls building up, then stateless node allows you to shard across servers, supported by distributed Mongo databases. This gives you the fastest websites. You don't need AWS.
 Do it yourself on "raw" server sites like Linode.<br /><br />
-You will also need to decide whether you want to use node callbacks, promises, or async/await. These days most programmers use promises, but there are a variety of considerations to look at when deciding. I still prefer callbacks even though your code looks like it is filled with "Christmas trees."
+<i>Note</i>: A blocking write stops the execution of JavaScript on the main event loop until the write completes. You can also use the non-blocking version whereby node submits the write operation to the OS/libuv thread pool and immediately returns to the event loop, but you risk data being in an undefined state,
+which can cause any number of subtle and difficult problems on a busy web server. It's best to fire up additional node instances to prevent delays for users, which can be done on either the same server of across multiple servers that are all
+accessing the same database. See <a href="../mongodb.html/">Mongodb topic</a>. It's important to note that even with a blocking write, completion usually means the data has been handed off to the operating system. It does not necessarily mean the bytes have been physically flushed to disk media. If you need durability guarantees (for example, a database transaction log), you typically need an fsync() or equivalent operation after the write.
+Multiple node instances of your AI application running on the same or multiple servers that share access to the database and recorded all operations in a transaction log are the absolutely best way of building out your AI.<br /><br />
+You will also need to decide whether you want to use traditional node callbacks, promises, or async/await. These days most programmers use promises, but there are a variety of considerations to look at when deciding. I still prefer traditional callbacks even though your code looks like it is filled with "Christmas trees."
 </blockquote>
 </div>
 </font>

@@ -40,11 +40,19 @@ _ids that make Mongodb a NoSQL database. You don't need primary keys, as in a SQ
 are eliminated. Mongo is lightening fast.<br /><br />
 When running an app in stateless node, you don't want your data structures' data cached in memory--or, at least, you want it cached to volatile storage for as little time as possible. You want your arrays read directly from and written directly to non-volatile storage.
 The mongodb driver for node.js supports this, with some limitations. When node.js app writes data, the data is mostly persisted immediately to durable storage. Every transaction is immediately journaled so
-that you can recover any data that is lost in the event that the database crashes before data is written to it. Information that is lost due to server crash during journaling can/t be recovered, but that's extrememly rare. With replication, mongodb scales like a dream. However, you can write only to the primary mongo node:</blockquote>
+that you can recover any data that is lost in the event that the database crashes before data is written to it. Information that is lost due to server crash during journaling can't be recovered, but that's extremely rare. There are OS and devops configurations and techniques that are used to ensure that journaling completes in every instance. With replication, mongodb scales like a dream. However, you can write only to the primary mongo node:</blockquote>
 
 <ul>
 <li><a href="https://docs.mongodb.com/manual/replication/">https://docs.mongodb.com/manual/replication/</a></li>
 <li><a href="https://github.com/williamkapke/mongo-mock">https://github.com/williamkapke/mongo-mock</a></li>
+</ul>
+
+Please note that:
+<ul>
+<li>Modern MongoDB uses document-level locking for writes.</li>
+<li>Two clients can update different documents in the same collection concurrently.</li>
+<li>Two clients trying to update the same document may contend with each other.</li>
+<li>MongoDB does not lock individual fields within a document.</li>
 </ul>
 
 <blockquote>

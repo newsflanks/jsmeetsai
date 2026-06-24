@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Using MERN to Create an Orchestration Library Sandbox</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+	<meta name="author" content="Bradford Harrison">
+	<meta name="description" content="Using Client-side Image Maps with JS and AI">
+	<meta name="robots" content="index">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<style type="text/css">
+		a:link {
+			color: #3366FF;
+		}
+		a:visited {
+			color: #000000;
+		}
+		a:hover {
+			color: #00A500;
+		text-decoration: none;
+		}
+		a:active {
+			color: #00A500;
+			text-decoration: none;
+		}
+	</style>
+
+</head>
+<body>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<h1>Using MERN to Create an Orchestration Library Sandbox</h1>
+<div>
+
+AI orchestration is the coordination and management of AI models, systems and integrations. MERN (Mongodb/Express/React/Node.js) provides a complete set of tools for development and deployment of an orchestration library, as shown below.<br /><br />
+
+<center><img src="../images/orchestration.jpg" width="361" height="150" border="0" /></center>
+
+<b>Important notes:</b>
+<ul>
+<li>Don't give the LLM direct access to your Mongo database. Use the LLM API to provide it with Mongo data via your node app. In other words, don't train the LLM directly: feed it the data you want it to incorporate into the model via the API.</li>
+<li>For most business applications and agenic AI, use an "off-the-shelf" LLM that is already hosted by the AI company you pay for access to an LLM. I use OpenAI's GPT-5.5 for newsflanks.com.</li>
+</ul>
+<b>This is my recommendation for deploying any medium scale AI app today:</b>
+<ul>
+<li>OpenAI's GPT for the LLM</li>
+<li>Backend/API access: Node.js + Typescript</li>
+<li>Web UI: React + Typescript</li>
+<li>Web server/reverse proxy: NGINX in front of Node.js</li>
+<li>Database: MongoDB</li>
+</ul>
+
+We're certainly still in the wild west with AI tech. I choose these technologies because they already have a long track record. At least for now, OpenAI is the best of breed for LLMs. MERN (based on the original MEAN) is well established now and widely used. NGINX is very commonly used on AWS.
+
+</div>
+</font>
+</body>
+</html>
